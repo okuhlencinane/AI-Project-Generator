@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
     <link rel="stylesheet" href="src/index.css" />
     <title>AI Project Generator</title>
 </head>
 <body>
-    <header class="'content">
+    <header class="content">
     <h1>Welcome to my AI Project Generator</h1>
       <main>
         <form id="poem-generator-form">
@@ -19,6 +21,7 @@
             required
             autocomplete="off"
             class="instructions"
+            id="poem-generator-form"
           />
           <input type="submit" class="submit-button" />
         </form>
