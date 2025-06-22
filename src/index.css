@@ -10,7 +10,7 @@ footer {
 }
 .quotes{
   font-size: 16px;
-  background-color:darkkhaki;
+  background-color:#cbf078;
   padding: 15px;
   line-height: 1.5;
   border-left: 2px solid #f8f398;
@@ -19,7 +19,7 @@ footer {
 .submit-button {
   margin-left: 10px;
   background:#f8f398;
-  color: azure;
+  color:black;
   border: none;
   width: 200px;
   font-size: 16px;
@@ -53,7 +53,7 @@ form {
   font-size: 16px;
   border-radius: 50px;
   line-height: 20px;
-  color:#cbf078;
+  color:black;
 }
 a {
   color:#f8f398;

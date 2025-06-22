@@ -3,33 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
     <link rel="stylesheet" href="src/index.css" />
     <title>AI Project Generator</title>
 </head>
 <body>
     <header class="'content">
     <h1>Welcome to my AI Project Generator</h1>
-    <form>
-        <input
-          type="text"
-          placeholder="Enter the topic of motivation"
-          autofocus
-          required
-          autocomplete="off"
-          class="instructions"
-        />
-        <input type="submit"class='submit-button' />
-      </form>
-      <div class="quotes">
-        It is never too late to be what you might have been.
-        <br/>
-        Change your thoughts and you change your world.
-      </div>
+      <main>
+        <form id="poem-generator-form">
+          <input
+            type="text"
+            placeholder="Enter the topic of the French poem"
+            autofocus
+            required
+            autocomplete="off"
+            class="instructions"
+          />
+          <input type="submit" class="submit-button" />
+        </form>
+        <div class="poem" id="poem"></div>
+      </main>
     </header>
     <footer>
         This project is coded by <a href='https://github.com/okuhlencinane'>Okuhle Ncinane </a>
         and is open-sourced on <a href='https://github.com/okuhlencinane/AI-Project-Generator'> Github</a>
          and is hosted on <a href='https://okuhle.netlify.app/'>Netlify</a>
     </footer>
+    <script src="src/index.js"></script>
 </body>
 </html>
