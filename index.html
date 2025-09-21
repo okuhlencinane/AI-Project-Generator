@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="src/index.css" />
     <title>AI Project Generator</title>
 </head>
 <body>
     <header class="content">
-    <h1>AI Poem Generator</h1>
+      <h1>AI Poem Generator</h1>
+      <h2>Generate beautiful poems on any topic you like</h2>
+      <div class="loading" style="display:none;">✨ Crafting your poem...</div>
       <main class="info-box">
         <form id="poem-generator-form">
           <input
@@ -25,7 +27,9 @@
           />
           <input type="submit" class="submit-button" />
         </form>
-        <div class="poem" id="poem"></div>
+        <div class="poemOutput" id="poem"></div>
+       <button id="copyBtn">Copy Poem</button>
+       <div id="poemOutput"></div>
       </main>
     </header>
     <footer>
