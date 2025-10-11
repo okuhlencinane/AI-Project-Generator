@@ -3,40 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="src/index.css" />
     <title>AI Project Generator</title>
 </head>
 <body>
-    <header class="content">
-      <h1>AI Poem Generator</h1>
-      <h2>Generate beautiful poems on any topic you like</h2>
-      <div class="loading" style="display:none;">✨ Crafting your poem...</div>
-      <main class="info-box">
-        <form id="poem-generator-form">
-          <input
-            type="text"
-            placeholder="Enter the topic of poem"
-            autofocus
-            required
-            autocomplete="off"
-            class="instructions"
-            id="poem-generator-form"
-          />
-          <input type="submit" class="submit-button" />
-        </form>
-        <div class="poemOutput" id="poem"></div>
-       <button id="copyBtn">Copy Poem</button>
-       <div id="poemOutput"></div>
-      </main>
-    </header>
+    <body>
+  <header class="content">
+    <h1>AI Poem Generator</h1>
+    <h2>Generate beautiful poems on any topic</h2>
+  </header>
+  <main class="info-box">
+<form id="poem-generator-form">
+  <input type="text" placeholder="Enter the topic of poem" required />
+  <input type="submit" class="submit-button" value="Generate Poem" />
+</form>
+<div class="loading" style="display:none;">✨ Crafting your poem...</div>
+<div id="poem"></div>
+<button id="copyBtn" style="display:none;">📋 Copy Poem</button>
+  </main>
     <footer>
         This project is coded by <a href='https://github.com/okuhlencinane'>Okuhle Ncinane </a>
         and is open-sourced on <a href='https://github.com/okuhlencinane/AI-Project-Generator'> Github</a>
          and is hosted on <a href='https://okuhle.netlify.app/'>Netlify</a>
     </footer>
     <script src="src/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/typewriter-effect@2.18.0/dist/core.js"></script>
 </body>
 </html>

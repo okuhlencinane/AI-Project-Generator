@@ -1,41 +1,39 @@
-function show(response){
-   new Typewriter("#poem", {
-    strings: response.data.answer,
-    autoStart: true,
-    delay: 1,
-    cursor: "",
-  });
-}
-function buttonAction(event) {
-    event.preventDefault();
-    let instructionsInput = document.querySelector("#poem-generator-form input");
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector("#poem-generator-form");
+  const poemContainer = document.querySelector("#poem");
+  const copyBtn = document.querySelector("#copyBtn");
+  const loading = document.querySelector(".loading");
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
     //let apiKey = '37o01tf961eb43e8aa46dbf5fa9e5225';
-    let context = "You are a poem expert and love to give people amazing and great poems. Your mission is to generate a short 10-line poem based on User instructions below use the first word user is inserting, make it short and simple amazing. The poem must have </br> in between. Make sure to follow the user instructions.";
+    const topicInput = form.querySelector("input[type='text']");
+    const topic = topicInput.value.trim();
+    if (!topic) return;
 
-    let prompt = 'User instructions: Generate an Africa beauty poem about ${instructionsInput.value}'; 
-    let apiURL = 'https://api.shecodes.io/ai/v1/generate?prompt=Generate a poem about love ${instructionsInput.value}&context=You are a wisdom-filled expert and love to give people information about poems. Your mission is to generate a short 6-line poem based on User instructions below, make it short and simple.Make sure to follow the user instructions.&key=37o01tf961eb43e8aa46dbf5fa9e5225';
-    let poemElement = document.querySelector("#poem");
-    poemElement.classList.remove("hidden");
-    poemElement.innerHTML = `<div class="generating">✨ Crafting your poem...</ ${instructionsInput.value}</div>`;
-    axios.get(apiURL).then(show);
-}
-let poemFormElement = document.querySelector("#poem-generator-form");
-poemFormElement.addEventListener("submit", buttonAction);
+    poemContainer.innerHTML = "";
+    copyBtn.style.display = "none";
+    loading.style.display = "block";
+    const poemText = await generatePoem(topic);
 
+    loading.style.display = "none";
+    const typewriter = new Typewriter(poemContainer, {
+      delay: 40,
+      cursor: "",
+    });
+    typewriter.typeString(poemText.replace(/\n/g, "<br>")).start();
 
-function typeWriter(text, element, speed = 40) {
-  let i = 0;
-  element.innerHTML = "";
-  const timer = setInterval(() => {
-    element.innerHTML += text.charAt(i);
-    i++;
-    if (i >= text.length) clearInterval(timer);
-  }, speed);
-}
-
-document.getElementById("poemOutput").addEventListener("click", () => {
-  navigator.clipboard.writeText(poemOutputEl.innerText)
-    .then(() => alert("Poem copied to clipboard!"));
+    copyBtn.style.display = "inline-block";
+  });
+  copyBtn.addEventListener("click", () => {
+    const text = poemContainer.innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      copyBtn.textContent = "✅ Copied!";
+      setTimeout(() => (copyBtn.textContent = "📋 Copy Poem"), 2000);
+    });
+  });
 });
-
+async function generatePoem(topic) {
+  await new Promise((r) => setTimeout(r, 1200));
+  return `In ${topic} dreams softly bloom,\nWhispers echo in gentle gloom.\nStars paint stories across the sky,\nWhere love and wonder never die.`
+}
 
